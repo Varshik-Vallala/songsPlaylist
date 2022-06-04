@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.heading {
+  color: #fff;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin: 12px 0;
+}
