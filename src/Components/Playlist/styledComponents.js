@@ -50,3 +50,10 @@ export const SearchElement = styled.input`
   padding: 6px;
   outline: none;
 `
+
+export const EmptyContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+`

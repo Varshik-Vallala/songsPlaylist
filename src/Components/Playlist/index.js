@@ -12,6 +12,7 @@ import {
   SongsList,
   SearchContainer,
   SearchElement,
+  EmptyContainer,
 } from './styledComponents'
 import SongItem from '../SongItem'
 
@@ -99,10 +100,14 @@ const initialTracksList = [
 ]
 
 class Playlist extends Component {
-  state = {search: ''}
+  state = {search: '', initialSongsList: initialTracksList}
 
   onClickDelete = id => {
+    const {initialSongsList} = this.state
     console.log(id)
+    const filteredList = initialSongsList.filter(eachSong => eachSong.id !== id)
+
+    this.setState({initialSongsList: filteredList})
   }
 
   onChangeSearch = event => {
@@ -110,9 +115,9 @@ class Playlist extends Component {
   }
 
   render() {
-    const {search} = this.state
+    const {search, initialSongsList} = this.state
 
-    const filteredSongs = initialTracksList.filter(eachSong =>
+    const filteredSongs = initialSongsList.filter(eachSong =>
       eachSong.name.toLowerCase().includes(search),
     )
 
@@ -146,7 +151,9 @@ class Playlist extends Component {
               ))}
             </SongsList>
           ) : (
-            <Heading>No Songs Found</Heading>
+            <EmptyContainer>
+              <Heading>No Songs Found</Heading>
+            </EmptyContainer>
           )}
         </SongsListContainer>
       </PlaylistContainer>

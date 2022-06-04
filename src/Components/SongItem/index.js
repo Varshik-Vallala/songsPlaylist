@@ -20,7 +20,7 @@ const SongItem = props => {
 
   return (
     <SongItemElement>
-      <Image src={imageUrl} alt={name} />
+      <Image src={imageUrl} alt="track" />
       <SongDetailsContainer>
         <SongDetails>
           <SongName>{name}</SongName>
@@ -28,7 +28,7 @@ const SongItem = props => {
         </SongDetails>
         <SongDetails flex>
           <Duration>{duration}</Duration>
-          <AiOutlineDelete onClick={onDeleteSong} />
+          <AiOutlineDelete onClick={onDeleteSong} testid="delete" />
         </SongDetails>
       </SongDetailsContainer>
     </SongItemElement>
